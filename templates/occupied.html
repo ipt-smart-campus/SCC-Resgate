@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div id="list" class="grid">
+    {% if items|length == 0 %}
+      <p class="muted">Sem espaços ocupados neste instante.</p>
+    {% else %}
+      {% for it in items %}
+        <div class="row">
+          <div style="width:100%">
+            <div style="font-weight:800; letter-spacing:.3px; margin-bottom:6px; color:#ff4d4f;">
+              ESPAÇO OCUPADO - {{ it.spaceName }}
+            </div>
+
+            <div class="muted" style="white-space:pre-line; line-height:1.6;">
+Instituição : {{ it.instPretty }}
+Campus : {{ it.campusPretty }}
+Bloco : {{ it.buildingPretty }}
+Área : {{ it.areaPretty }}
+Espaço : {{ it.spaceName }}
+
+Detalhes: {{ it.details }}
+
+Fim da Ocupação do Espaço : {{ it.endHuman }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  window.setupAutoRefresh("/api/occupied-now");
+</script>
+{% endblock %}

@@ -1,0 +1,12 @@
+services:
+  resgate-ui:
+    build: .
+    container_name: resgate-ipt-smartcampuscore
+    ports:
+      - "8088:8081"
+    environment:
+      API_BASE: "http://host.docker.internal:5000"
+      TZ: "Europe/Lisbon"
+      API_ROOMS_ENDPOINT: "/api/spaces"     # <— força /api/spaces
+    restart: unless-stopped
+
