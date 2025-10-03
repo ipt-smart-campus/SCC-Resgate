@@ -72,16 +72,24 @@ API_ROOMS_ENDPOINT: "/api/spaces"
 
 ## 5) Como executar
 
-Com Docker (recomendado):
+Com Docker:
+
+iniciar projeto pela primeira vez:
 
 ```powershell
 docker-compose up -d --build
 ```
 
-Atualizações seguintes:
+inciar projeto após a primeira vez:
 
 ```powershell
 docker-compose up -d
+```
+
+verificar estado containers:
+
+```powershell
+docker ps"
 ```
 
 Aceder: http://localhost:8088
@@ -121,6 +129,3 @@ Melhorias sugeridas:
 - Use `/api/debug` para inspecionar espaços e configuração ativa.
 - Ver logs do container: `docker logs -f resgate-ipt-smartcampuscore`.
 
-## 10) Licença
-
-Interno — ajuste conforme as políticas da sua organização.
